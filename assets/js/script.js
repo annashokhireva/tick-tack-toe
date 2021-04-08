@@ -28,7 +28,7 @@ function init(){
         '', '', ''
         ];
    
-    render();   
+    render(); 
     
     statusDisplay.textContent = '';
 }    
@@ -43,15 +43,15 @@ function render(){
 
     if ( win === 'T' ) {
         statusDisplay.textContent = `That's a tie!`;
-      } 
+    } 
     
-      else if (win) { 
+    else if (win) { 
         statusDisplay.textContent = `${win} wins the game!`;
-      } 
-      
-      else {
+    }
+    
+    else {
         statusDisplay.textContent = `It's ${currentPlayer}'s turn!`;
-      }
+    }
 
 }
 
@@ -72,7 +72,7 @@ function handlePlayerChange(e) {
     
     win = getWinner();
 
-    render();
+    render();    
 }
 
 
@@ -81,25 +81,40 @@ playField.addEventListener('click', handlePlayerChange);
 function getWinner() {
     let winner = null;
 
-    winningCombos.forEach(function(combo, index){
+    winningCombos.forEach(function(combo){
 
-        if (board[combo[0]] && board[combo[0]] === board[combo [1]] && 
-            board[combo[0]] === board[combo[2]]) {
-                winner = board[combo[0]];
-            }   
+        if (board[combo[0]] && board[combo[0]] === board[combo [1]] && board[combo[0]] === board[combo[2]]) {
+            winner = board[combo[0]];
+            playAgain();
+        }   
     });
 
     if (winner) {
         return winner; 
-      } 
+    } 
       
     else if (board.includes('')) {
         return null;
     }
+
     else {
         return 'T';
-      }
+    }
 
+}
+
+function playAgain() {
+
+    if(win || win === 'T'){
+
+        let x = confirm(`${win} won the game. Would you like to play again?`);
+                
+        if (x){
+            init();
+        }
+            
+        else return false;
+    }
 }
 
 resetBtn.addEventListener('click', init);
