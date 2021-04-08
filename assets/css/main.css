@@ -1,0 +1,75 @@
+.play-field {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  width: 400px;
+  height: 400px;
+  margin: 0;
+  border: none;
+  margin: 10px;
+}
+
+.play-field-bkg {
+  position: absolute;
+  width: 440px;
+  height: 400px;
+  padding: 10px 0;
+  padding-left: 40px;
+  grid-row: 1/span 3;
+  grid-column: 1/span 3;
+}
+
+.square {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  line-height: 0;
+  font-size: 100px;
+  color: #343435;
+  z-index: 1;
+}
+
+.status-display {
+  text-align: center;
+  color: #236e33;
+  text-shadow: #c7c4c4;
+  min-height: 60px;
+  font-size: 50px;
+}
+
+.reset-btn {
+  border: none;
+  background: none;
+  margin: 5%;
+  font-size: 50px;
+  color: #19191a;
+}
+
+.reset-btn:hover {
+  color: #a52e10;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Nanum Brush Script", cursive;
+}
+
+.content {
+  margin: 3% auto;
+  width: 600px;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 200;
+}
+
+h1 {
+  font-size: 60px;
+  margin: 0;
+}
+
+/*# sourceMappingURL=main.css.map */
